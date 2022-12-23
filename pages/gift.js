@@ -30,9 +30,9 @@ export default function Home() {
           priceMin, priceMax, age, gender, hobbies}),
       });
       const data = await response.json();
-      setResult(data.result.replaceAll('∖n', '<br />'));
+      setResult(data.result.replaceAll('\n', '<br />'));
     } catch(e){
-      alert('Failed to generate gift ideas, Check Internet Connection');
+      alert('Failed to generate gift ideas, Check Internet Connection and try again');
     } finally{
       setLoading(false);
     }
