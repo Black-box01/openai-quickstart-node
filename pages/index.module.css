@@ -63,6 +63,9 @@
     margin: 0;
     padding: 0px;
   }
+  .hea{
+    font-size: 25px;
+  }
 }
 .name{
   display: flex;
