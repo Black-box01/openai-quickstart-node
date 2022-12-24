@@ -39,16 +39,22 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className={styles.overAll}>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>GIFT IDEA GENERATOR</title>
+        <link rel="icon" href="/bb.gif" />
       </Head>
 
       <main className={styles.main}>
-        <h3>Christmas Gift Generator 🎅🎁</h3>
-        <form onSubmit={onSubmit}>
-          <label>For who is the gift?</label>
+      {!loading && (
+      <div className={styles.name}>
+        <h1 className={styles.hea}>GIFT IDEA GENERATOR</h1>
+        <div className={styles.img}>
+          <img src="/fr.png"/>
+        </div>
+      </div>)}
+        {!loading  && (<form onSubmit={onSubmit}>
+          <label>Who is the gift for?</label>
           <select
             name="gender"
             value={gender}
@@ -98,19 +104,28 @@ export default function Home() {
             onChange={(e) => setHobbies(e.target.value)}
           />
           <input type="submit" value="Generate gift ideas" />
-        </form>
+        </form>)}
         {loading && (
-          <div>
+          <div className="box">
             <h3>Looking for the best gift ideas 🎁 💡</h3>
-            <img src="/loading.gif" className={styles.loading} />
+            <img src="/bb.gif" className={styles.loading} />
           </div>
         )}
         {result && (
-        <div 
-        className={styles.result}
-        dangerouslySetInnerHTML={{ __html: result }}
-         />)}
+          <div className={styles.re}>
+          <img src="/arr.png" className={styles.arr}/>
+            <div 
+            className={styles.result}
+            dangerouslySetInnerHTML={{ __html: result }}
+            />
+          </div>)}
       </main>
+
+      <footer className={styles.foo}>
+        <label>
+          Developed by KACHI
+        </label>
+      </footer>
     </div>
   );
 }
